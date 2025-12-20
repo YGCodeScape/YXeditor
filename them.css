@@ -2,7 +2,9 @@
     /* BG COLORS */
     --bg-primary-color: rgb(17,17,17);
     --bg-secondary-color: rgb(34,34,34);
-    --bg-active-color: rgb(233,233,233);
+    --bg-active-color: rgb(245, 243, 243);
+    --bg-danger-color: rgb(200,50,50);
+    --bg-success-color: rgb(24, 155, 24);
 
     /* TEXT COLOR */
     --text-primary-color: rgb(237,237,237);
