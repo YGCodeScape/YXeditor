@@ -3,11 +3,19 @@
     padding: 0;
     box-sizing: border-box;
 }
+html {
+    color: var(--text-primary-color);
+    background-color: var(--bg-primary-color);
+}
 body {
     width: 100%;
     height: 100%;
     font-family: var(--font-roboto);
-    background-color: var(--bg-primary-color);
+}
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 main {
@@ -21,6 +29,7 @@ main {
     background-color: var(--bg-active-color);
     cursor: pointer;
     font-weight: 500;
+    color: #000;
 }
 #reset-btn {
     background-color: var(--bg-danger-color);
@@ -35,17 +44,53 @@ main {
 }
 main section {
     width: 100%;
-    padding: var(--padding-2xl);
-    border: 2px solid red;
+    padding: var(--padding-lg) var(--padding-2xl);
+    display: flex;
+    flex-direction: row;
 }
 main section .left {
+    width: 70%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: var(--gutter-lg);
-    border: 2px solid rgb(242, 255, 128);
+    border: 2px solid rgb(250, 250, 250);
+    padding:var(--padding-sm) var(--padding-lg);
 }
+main section .right{ 
+    width: 30%;
+    border: 2px solid green;
+}
+
 main section .left-top {
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: var(--gutter-md);
+}
+main section .left-bottom {
+    width: 100%;
+    height: 80vh;
+    background-color: var(--bg-secondary-color);
+    padding: var(--padding-2xl);
+    border: 2px solid red;
+    border-radius: var(--border-radius-xl);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.6;
+    gap: var(--gutter-sm);
+}
+.placeholder i {
+    font-size: 10rem;
+}
+.placeholder p {
+    font-size: var(--font-size-lg);
 }
