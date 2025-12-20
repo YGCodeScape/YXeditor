@@ -31,6 +31,10 @@
     --gutter-xl: 2rem;
     --gutter-2xl: 3rem;
 
+    /* FONT FAMILY */
+    --font-roboto: "Roboto", sans-serif;
+    --font-comicRelief: "Comic Relief", system-ui;
+
     /* FONT SIZE */
     --font-size-sm: 0.875rem;
     --font-size-md: 1rem;
