@@ -1,4 +1,4 @@
-const filters = {
+let filters = {
     brightness: {
         value: 100,
         min: 0,
@@ -58,7 +58,9 @@ const filters = {
 const filtersContainer = document.querySelector(".filters");
 const imgCanvas = document.querySelector("#img-canvas");
 const imgInput = document.querySelector("#image-input");
-const canvasCtx = imgCanvas.getContext("2d")
+const canvasCtx = imgCanvas.getContext("2d");
+const resetBtn = document.querySelector("#reset-btn");
+const download = document.querySelector("#download-btn");
 let currentImage = null 
 
 function createFiltersElement(name, unit = "%", value, min, max) {
@@ -135,3 +137,7 @@ function applyFilters() {
     canvasCtx.clearRect(0, 0, imgCanvas.width, imgCanvas.height)
     canvasCtx.drawImage(currentImage, 0, 0)
 }
+
+resetBtn.addEventListener("click", () => {
+
+})
