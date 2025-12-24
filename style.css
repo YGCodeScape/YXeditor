@@ -111,16 +111,16 @@ section .right .filter {
     flex-direction: column;
     gap: var(--gutter-md);
 }
-.filter input {
+.filter input[type = "range"] {
     width: 100%;
     outline: none;
     margin-top: var(--margin-sm);
     appearance: none;
+    border-radius: 2px;
 }
 
 .filter input::-webkit-slider-runnable-track {
-    appearance: none;
-    background-color: transparent;
+    background-color: #d4d2d2;
     height: 4px;
     border-radius: 2px;
 }
@@ -130,6 +130,6 @@ section .right .filter {
     height: 15px;
     border-radius: 50%;
     cursor: pointer;
-    background-color: red;
+    background-color: rgb(255, 251, 18);
     margin-top: -6px;
 }
