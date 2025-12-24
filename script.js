@@ -83,10 +83,16 @@ function createFiltersElement(name, unit = "%", value, min, max) {
     div.appendChild(p)
     div.appendChild(input)
 
+    input.addEventListener("input", (event) => {
+        console.log(input.id)
+        console.log(input.value)
+    })
+
     return div
 }
 createFiltersElement();
 
+// APPEND ALL FILTERS TO THE FILTERS DIV ACCORDING TO FILTERS OBJECT 
 Object.keys(filters).forEach(key => {
 
     const filterElement = createFiltersElement(key, filters[ key ].unit, filters[key].value, filters[key].min, filters[key].max)
@@ -94,6 +100,7 @@ Object.keys(filters).forEach(key => {
     filtersContainer.appendChild(filterElement)
 })
 
+// SHOWCASE THE SELECTED IMG TO THE CANVAS AREA
 imgInput.addEventListener("change", (event) => {
 
     const imgPlaceholder = document.querySelector(".placeholder")
