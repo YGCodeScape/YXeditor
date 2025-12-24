@@ -47,6 +47,7 @@ main section {
     padding: var(--padding-lg) var(--padding-2xl);
     display: flex;
     flex-direction: row;
+    gap: var(--gutter-lg);
 }
 main section .left {
     width: 70%;
@@ -54,12 +55,15 @@ main section .left {
     flex-direction: column;
     align-items: center;
     gap: var(--gutter-lg);
-    border: 2px solid rgb(250, 250, 250);
+    border-radius: var(--border-radius-xl);
     padding:var(--padding-sm) var(--padding-lg);
+    background-color: var(--bg-secondary-color);
 }
 main section .right{ 
     width: 30%;
-    border: 2px solid green;
+    padding: var(--padding-lg);
+    border-radius: var(--border-radius-xl);
+    background-color: var(--bg-secondary-color);
 }
 
 main section .left-top {
@@ -72,7 +76,6 @@ main section .left-top {
 main section .left-bottom {
     width: 100%;
     height: 80vh;
-    background-color: var(--bg-secondary-color);
     padding: var(--padding-2xl);
     border: 2px solid red;
     border-radius: var(--border-radius-xl);
@@ -93,4 +96,40 @@ main section .left-bottom {
 }
 .placeholder p {
     font-size: var(--font-size-lg);
+}
+/* FILTER SECTION */
+section .right {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-md);
+}
+section .right .filter {
+    width: 100%;
+}
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-md);
+}
+.filter input {
+    width: 100%;
+    outline: none;
+    margin-top: var(--margin-sm);
+    appearance: none;
+}
+
+.filter input::-webkit-slider-runnable-track {
+    appearance: none;
+    background-color: transparent;
+    height: 4px;
+    border-radius: 2px;
+}
+.filter input::-webkit-slider-thumb {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: red;
+    margin-top: -6px;
 }
