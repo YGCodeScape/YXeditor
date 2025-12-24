@@ -60,7 +60,7 @@ const imgCanvas = document.querySelector("#img-canvas");
 const imgInput = document.querySelector("#image-input");
 const canvasCtx = imgCanvas.getContext("2d");
 const resetBtn = document.querySelector("#reset-btn");
-const download = document.querySelector("#download-btn");
+const downloadBtn = document.querySelector("#download-btn");
 let currentImage = null 
 
 function createFiltersElement(name, unit = "%", value, min, max) {
@@ -199,4 +199,12 @@ resetBtn.addEventListener("click", () => {
 
     filtersContainer.innerHTML = ""
     createFilters()
+})
+
+downloadBtn.addEventListener("click", () => {
+    console.log("download");
+    const link = document.createElement("a")
+    link.download = "edited-image.png"
+    link.href = imgCanvas.toDataURL()
+    link.click()
 })
