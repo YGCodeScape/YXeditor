@@ -11,12 +11,6 @@ const filters = {
         max: 200,
         unit: "%"  
     },
-    exposure: {
-        value: 100,
-        min: 0,
-        max: 200,
-        unit: "%"
-    },
     saturation: {
         value: 100,
         min: 0,
@@ -65,6 +59,7 @@ const filtersContainer = document.querySelector(".filters");
 const imgCanvas = document.querySelector("#img-canvas");
 const imgInput = document.querySelector("#image-input");
 const canvasCtx = imgCanvas.getContext("2d")
+let currentImage = null 
 
 function createFiltersElement(name, unit = "%", value, min, max) {
     const div = document.createElement("div")
@@ -84,8 +79,8 @@ function createFiltersElement(name, unit = "%", value, min, max) {
     div.appendChild(input)
 
     input.addEventListener("input", (event) => {
-        console.log(input.id)
-        console.log(input.value)
+        filters[name].value = input.value
+        applyFilters()
     })
 
     return div
@@ -104,7 +99,7 @@ Object.keys(filters).forEach(key => {
 imgInput.addEventListener("change", (event) => {
 
     const imgPlaceholder = document.querySelector(".placeholder")
-    imgPlaceholder.computedStyleMap.display = "none"
+    imgPlaceholder.style.display = "none"
 
     const file = event.target.files[ 0 ]
     
@@ -112,8 +107,31 @@ imgInput.addEventListener("change", (event) => {
     img.src = URL.createObjectURL(file)
 
     img.onload = () => {
+        currentImage = img 
         imgCanvas.width = img.width
         imgCanvas.height = img.height
         canvasCtx.drawImage(img, 0, 0)
     }
 })
+
+// APPLY FILTERS 
+function applyFilters() {
+    if (!currentImage) return
+
+    const f = filters
+    const filterStr = [
+        `brightness(${f.brightness.value}${f.brightness.unit})`,
+        `contrast(${f.contrast.value}${f.contrast.unit})`,
+        `saturate(${f.saturation.value}${f.saturation.unit})`,
+        `hue-rotate(${f.hueRotation.value}${f.hueRotation.unit})`,
+        `blur(${f.blur.value}${f.blur.unit})`,
+        `grayscale(${f.grayscale.value}${f.grayscale.unit})`,
+        `sepia(${f.sepia.value}${f.sepia.unit})`,
+        `opacity(${f.opacity.value}${f.opacity.unit})`,
+        `invert(${f.invert.value}${f.invert.unit})`
+    ].join(" ")
+
+    canvasCtx.filter = filterStr
+    canvasCtx.clearRect(0, 0, imgCanvas.width, imgCanvas.height)
+    canvasCtx.drawImage(currentImage, 0, 0)
+}
