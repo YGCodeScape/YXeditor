@@ -90,13 +90,13 @@ function createFiltersElement(name, unit = "%", value, min, max) {
 createFiltersElement();
 
 // APPEND ALL FILTERS TO THE FILTERS DIV ACCORDING TO FILTERS OBJECT 
-Object.keys(filters).forEach(key => {
-
-    const filterElement = createFiltersElement(key, filters[ key ].unit, filters[key].value, filters[key].min, filters[key].max)
-
-    filtersContainer.appendChild(filterElement)
-})
-
+function createFilters() {
+    Object.keys(filters).forEach(key => {
+       const filterElement = createFiltersElement(key, filters[ key ].unit, filters[key].value, filters[key].min, filters[key].max)
+       filtersContainer.appendChild(filterElement)
+    })
+}
+createFilters()
 // SHOWCASE THE SELECTED IMG TO THE CANVAS AREA
 imgInput.addEventListener("change", (event) => {
 
@@ -139,5 +139,64 @@ function applyFilters() {
 }
 
 resetBtn.addEventListener("click", () => {
+ filters = {
+    brightness: {
+        value: 100,
+        min: 0,
+        max: 200,
+        unit: "%"
+    },
+    contrast: {
+        value: 100,
+        min: 0,
+        max: 200,
+        unit: "%"  
+    },
+    saturation: {
+        value: 100,
+        min: 0,
+        max: 200,
+        unit: "%" 
+    },
+    hueRotation:  {
+        value: 0,
+        min: 0,
+        max: 360,
+        unit: "deg"
+    },
+    blur: {
+        value: 0,
+        min: 0,
+        max: 200,
+        unit: "px"
+    },
+    grayscale: {
+        value: 0,
+        min: 0,
+        max: 200,
+        unit: "%"
+    },
+    sepia: {
+        value: 0,
+        min: 0,
+        max: 200,
+        unit: "%"
+    },
+    opacity: {
+        value: 100,
+        min: 0,
+        max: 100,
+        unit: "%"
+    },
+    invert: {
+        value: 0,
+        min: 0,
+        max: 200,
+        unit: "%"
+    },
+    }
+    applyFilters();
 
+    filtersContainer.innerHTML = ""
+    createFilters()
 })
