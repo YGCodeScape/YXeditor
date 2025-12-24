@@ -82,6 +82,7 @@ main section .left-bottom {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 .placeholder {
     display: flex;
@@ -97,6 +98,15 @@ main section .left-bottom {
 .placeholder p {
     font-size: var(--font-size-lg);
 }
+
+canvas {
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    border: 2px solid red;
+}
+
 /* FILTER SECTION */
 section .right {
     display: flex;
@@ -116,13 +126,13 @@ section .right .filter {
     outline: none;
     margin-top: var(--margin-sm);
     appearance: none;
-    border-radius: 2px;
+    border-radius: 5px;
 }
 
 .filter input::-webkit-slider-runnable-track {
     background-color: #d4d2d2;
     height: 4px;
-    border-radius: 2px;
+    border-radius: 5px;
 }
 .filter input::-webkit-slider-thumb {
     appearance: none;
