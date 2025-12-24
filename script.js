@@ -95,12 +95,18 @@ Object.keys(filters).forEach(key => {
 })
 
 imgInput.addEventListener("change", (event) => {
+
+    const imgPlaceholder = document.querySelector(".placeholder")
+    imgPlaceholder.computedStyleMap.display = "none"
+
     const file = event.target.files[ 0 ]
     
     const img = new Image()
     img.src = URL.createObjectURL(file)
 
     img.onload = () => {
+        imgCanvas.width = img.width
+        imgCanvas.height = img.height
         canvasCtx.drawImage(img, 0, 0)
     }
 })
